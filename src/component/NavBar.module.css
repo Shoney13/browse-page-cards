@@ -1,0 +1,61 @@
+.navBarMain {
+  width: 100%;
+  padding: 0 20px;
+  background: #fff;
+  box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  display: flex;
+  position: fixed;
+  top: 0;
+  z-index: 102;
+  align-items: center;
+  height: 68px;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.navSearchButton {
+  color: #fff;
+  width: 55px;
+  height: 55px;
+  border-radius: 50%;
+  background: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+}
+
+.navSearchArea {
+  display: flex;
+  align-items: center;
+  background-color: var(--primary-background);
+  width: 100%;
+  border-radius: 50px;
+  gap: 0.5rem;
+  padding-right: 0.5rem;
+}
+
+.navCourseButton {
+  border: none;
+  background-color: #fff;
+  border-radius: 1rem;
+  padding: 0.5rem 0.7rem;
+  font-family: "Poppins", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.navCourseButton:hover {
+  color: var(--primary-color);
+}
+
+.navBarServices {
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
