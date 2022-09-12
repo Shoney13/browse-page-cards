@@ -24,7 +24,7 @@ const Browse = () => {
             "https://api.beyondexams.org/api/v1/get_courses?level=1&parent_id=0"
           )
           .then((response) => {
-            console.log(response.data.data.courses.data);
+            // console.log(response.data.data.courses.data);
             setSyllabusData(response.data.data.courses.data);
           });
     }
@@ -51,8 +51,8 @@ const Browse = () => {
         </button>
       </div>
       <div className={styles.browseCards}>
-        {activeCards === 1
-          ? skillData.length > 0 &&
+        {activeCards === 1 ? (
+          skillData.length > 0 ? (
             skillData.map((card, index) => (
               <CourseCard
                 src={card.image_url}
@@ -61,15 +61,21 @@ const Browse = () => {
                 key={index}
               />
             ))
-          : syllabusData.length > 0 &&
-            syllabusData.map((card, index) => (
-              <CourseCard
-                src={card.image_url}
-                title={card.title}
-                video_count={card.num_topics}
-                key={index}
-              />
-            ))}
+          ) : (
+            <>Loading</>
+          )
+        ) : syllabusData.length > 0 ? (
+          syllabusData.map((card, index) => (
+            <CourseCard
+              src={card.image_url}
+              title={card.title}
+              video_count={card.num_categories}
+              key={index}
+            />
+          ))
+        ) : (
+          <>Loading</>
+        )}
       </div>
     </div>
   );

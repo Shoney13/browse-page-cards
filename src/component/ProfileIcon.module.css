@@ -40,3 +40,8 @@
 .profileTypeIcon.teacher{
   background-color: red;
 }
+@media screen and (max-width: 600px) {
+  .profileIcon{
+    display: none;
+  }
+}

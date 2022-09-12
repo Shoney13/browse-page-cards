@@ -59,3 +59,14 @@
   align-items: center;
   margin-left: auto;
 }
+
+@media screen and (max-width: 600px) {
+  .navCourseButton,
+  .navBarServices {
+    display: none;
+  }
+  .navSearchArea {
+    width: auto;
+    padding: 0%;
+  }
+}
