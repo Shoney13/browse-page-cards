@@ -33,3 +33,13 @@
   border-radius: 25px;
   box-shadow: var(--primary-color) 0px 0px 0px 1px;
 }
+
+.browseCards{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem;
+  transition: all 200ms ease;
+  justify-content:space-evenly;
+  align-items: center;
+}

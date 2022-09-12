@@ -3,6 +3,7 @@
   --primary-color: #6646e7;
   --primary-background: #f1edff;
   font-family: "Poppins", sans-serif !important;
+  font-weight: 500;
 }
 
 html {
