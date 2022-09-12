@@ -4,17 +4,31 @@ import styles from "./Browse.module.css";
 import CourseCard from "./CourseCard";
 const Browse = () => {
   const [activeCards, setActiveCards] = useState(1);
-  const [browseData, setBrowseData] = useState([]);
+  const [skillData, setSkillData] = useState([]);
+  const [syllabusData, setSyllabusData] = useState([]);
   useEffect(() => {
-    axios
-      .get(
-        "https://api.beyondexams.org/api/v1/get_next_level_topics?level=1&parent_id=0"
-      )
-      .then((response) => {
-        console.log(response.data.data.data);
-        setBrowseData(response.data.data.data);
-      });
-  }, []);
+    if (activeCards === 1) {
+      if (skillData.length === 0)
+        axios
+          .get(
+            "https://api.beyondexams.org/api/v1/get_next_level_topics?level=1&parent_id=0"
+          )
+          .then((response) => {
+            // console.log(response.data.data.data);
+            setSkillData(response.data.data.data);
+          });
+    } else {
+      if (syllabusData.length === 0)
+        axios
+          .get(
+            "https://api.beyondexams.org/api/v1/get_courses?level=1&parent_id=0"
+          )
+          .then((response) => {
+            console.log(response.data.data.courses.data);
+            setSyllabusData(response.data.data.courses.data);
+          });
+    }
+  }, [activeCards]);
 
   return (
     <div className={styles.browsePage}>
@@ -37,10 +51,25 @@ const Browse = () => {
         </button>
       </div>
       <div className={styles.browseCards}>
-        {browseData.length > 0 &&
-          browseData.map((card, index) => (
-            <CourseCard src={card.image_url} title={card.title} video_count={card.num_topics} key={index} />
-          ))}
+        {activeCards === 1
+          ? skillData.length > 0 &&
+            skillData.map((card, index) => (
+              <CourseCard
+                src={card.image_url}
+                title={card.title}
+                video_count={card.num_topics}
+                key={index}
+              />
+            ))
+          : syllabusData.length > 0 &&
+            syllabusData.map((card, index) => (
+              <CourseCard
+                src={card.image_url}
+                title={card.title}
+                video_count={card.num_topics}
+                key={index}
+              />
+            ))}
       </div>
     </div>
   );
