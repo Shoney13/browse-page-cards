@@ -13,10 +13,35 @@
   justify-content: space-between;
   gap: 1rem;
 }
-
+.navBarLogo{
+  background-image: url('../assets/beyond-exams-logo.svg');
+  height: 67px;
+  width: 107px;
+  background-position: 50%;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+.navSearchInput{
+  border: none;
+  background-color: white;
+  width: 0px;
+  height: 55px;
+  border-radius: 50px;
+  margin-left: -7px;
+  transition: all 300ms ease;
+}
+.navSearchInput.navSearchActive{
+  outline: none;
+  padding: 1rem;
+  font-size: 1rem;
+  width: 100%;
+  box-shadow: 0 4px 9px rgb(0 0 0 / 25%);
+  margin-left: 0px;
+}
 .navSearchButton {
   color: #fff;
   width: 55px;
+  min-width: 55px;
   height: 55px;
   border-radius: 50%;
   background: var(--primary-color);
@@ -35,6 +60,9 @@
   border-radius: 50px;
   gap: 0.5rem;
   padding-right: 0.5rem;
+}
+.navSearchArea.navSearchActive {
+  padding-right: 0%;
 }
 
 .navCourseButton {
@@ -60,6 +88,10 @@
   margin-left: auto;
 }
 
+.navCourseButton.navSearchActive,
+.navBarServices.navSearchActive {
+  display: none;
+}
 @media screen and (max-width: 600px) {
   .navCourseButton,
   .navBarServices {
@@ -68,5 +100,25 @@
   .navSearchArea {
     width: auto;
     padding: 0%;
+    background-color: inherit;
+  }
+  .navSearchButton {
+    margin-left: auto;
+  }
+  .navSearchButton.navSearchActive {
+    margin-left: 0%;
+  }
+  .navSearchInput {
+    margin-left: 0%;
+  }
+  .navSearchInput.navSearchActive {
+    margin-left: auto;
+  }
+  .navSearchInput::placeholder{
+    font-size: 0.8rem;
+  }
+  .navBarLogo{
+    background-image: url('../assets/beyond-exams-logo-mobile.svg');
+    width: 40px;
   }
 }
